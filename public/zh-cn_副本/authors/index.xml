@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Tags on Ryan先生的blog</title>
-    <link>http://localhost:1313/tags/</link>
-    <description>Recent content in Tags on Ryan先生的blog</description>
+    <title>Authors on Monsieur Ryan的blog</title>
+    <link>http://localhost:1313/zh-cn_%E5%89%AF%E6%9C%AC/authors/</link>
+    <description>Recent content in Authors on Monsieur Ryan的blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
     <managingEditor>maverickfcy@foxmail.com (Ryan)</managingEditor>
     <webMaster>maverickfcy@foxmail.com (Ryan)</webMaster>
     <copyright>© 2025 Ryan</copyright>
-    <atom:link href="http://localhost:1313/tags/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:1313/zh-cn_%E5%89%AF%E6%9C%AC/authors/index.xml" rel="self" type="application/rss+xml" />
     
   </channel>
 </rss>
