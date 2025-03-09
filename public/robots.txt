@@ -1,3 +1,0 @@
-User-agent: *
-Allow: /
-Sitemap: https://monsieurryan.github.io/sitemap.xml
