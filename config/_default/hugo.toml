@@ -17,6 +17,7 @@ buildFuture = false
 enableEmoji = true
 
 # googleAnalytics = "G-XXXXXXXXX"
+hasCJKLanguage = true
 
 [pagination]
   pagerSize = 100
