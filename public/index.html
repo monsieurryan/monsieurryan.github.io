@@ -12,7 +12,7 @@
   <title>Ryan先生的blog</title>
   <meta name="title" content="Ryan先生的blog" />
   
-  
+  <meta name="description" content="Ryan的个人博客" />
   
   
   
@@ -72,12 +72,14 @@
   <meta property="og:url" content="http://localhost:1313/">
   <meta property="og:site_name" content="Ryan先生的blog">
   <meta property="og:title" content="Ryan先生的blog">
+  <meta property="og:description" content="Ryan的个人博客">
   <meta property="og:locale" content="zh_cn">
   <meta property="og:type" content="website">
 
   
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="Ryan先生的blog">
+  <meta name="twitter:description" content="Ryan的个人博客">
 
   
   <script type="application/ld+json">
@@ -169,10 +171,21 @@
             
             
             
+  <a href="/"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+    
+    <p class="text-base font-medium" title="">
+        主页
+    </p>
+</a>
+
+
+
+            
+            
   <a href="/posts/"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
     
-    <p class="text-base font-medium" title="Posts">
-        博客
+    <p class="text-base font-medium" title="文章">
+        文章
     </p>
 </a>
 
@@ -194,14 +207,14 @@
 
 
     </span>
-    <div class="text-sm font-medium text-gray-500 hover:text-primary-600 dark:hover:text-primary-400" title="Ryan先生的blog">简体中文</div>
+    <div class="text-sm font-medium text-gray-500 hover:text-primary-600 dark:hover:text-primary-400" title="">简体中文</div>
   </div>
   <div class="absolute menuhide">
     <div class="pt-2 p-5 mt-2 rounded-xl backdrop-blur shadow-2xl">
       <div class="flex flex-col space-y-3">
         
         <a href="/" class="flex items-center">
-          <p class="text-sm font-sm text-gray-500 hover:text-primary-600 dark:hover:text-primary-400" title="Ryan先生的blog">
+          <p class="text-sm font-sm text-gray-500 hover:text-primary-600 dark:hover:text-primary-400" title="">
             简体中文
           </p>
         </a>
@@ -281,14 +294,14 @@
 
 
     </span>
-    <div class="text-sm font-medium text-gray-500 hover:text-primary-600 dark:hover:text-primary-400" title="Ryan先生的blog">简体中文</div>
+    <div class="text-sm font-medium text-gray-500 hover:text-primary-600 dark:hover:text-primary-400" title="">简体中文</div>
   </div>
   <div class="absolute menuhide">
     <div class="pt-2 p-5 mt-2 rounded-xl backdrop-blur shadow-2xl">
       <div class="flex flex-col space-y-3">
         
         <a href="/" class="flex items-center">
-          <p class="text-sm font-sm text-gray-500 hover:text-primary-600 dark:hover:text-primary-400" title="Ryan先生的blog">
+          <p class="text-sm font-sm text-gray-500 hover:text-primary-600 dark:hover:text-primary-400" title="">
             简体中文
           </p>
         </a>
@@ -383,10 +396,10 @@
 
                     
   <li class="mt-1">
-    <a href="/posts/"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+    <a href="/"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
         
-        <p class="text-bg font-bg" title="Posts">
-            博客
+        <p class="text-bg font-bg" title="">
+            主页
         </p>
     </a>
 </li>
@@ -396,22 +409,19 @@
 
                     
 
-                </ul>
-                
-                <hr>
-                <ul
-                    class="flex mt-4 flex-col items-end w-full px-6 py-6 mx-auto overflow-visible list-none ltr:text-right rtl:text-left max-w-7xl">
-
-
                     
-                    <li class="mb-1">
-                        <a href=""  class="flex items-center">
-                            
-                            <p class="text-sm font-sm text-gray-500 hover:text-gray-900" title="">
-                                An interesting topic
-                            </p>
-                        </a>
-                    </li>
+  <li class="mt-1">
+    <a href="/posts/"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+        
+        <p class="text-bg font-bg" title="文章">
+            文章
+        </p>
+    </a>
+</li>
+
+
+
+
                     
 
                 </ul>
@@ -424,20 +434,17 @@
 </div>
 
 
-<div class="main-menu flex pb-3 flex-col items-end justify-between md:justify-start space-x-3" >
-    <div class="hidden md:flex items-center space-x-5">
-        
-        <a href=""  class="flex items-center">
-            
-            <p class="text-xs font-light text-gray-500 hover:text-gray-900" title="">
-                An interesting topic
-            </p>
-        </a>
-        
-    </div>
-</div>
 
 
+<script>
+    (function () {
+        var $mainmenu = $('.main-menu');
+        var path = window.location.pathname;
+        $mainmenu.find('a[href="' + path + '"]').each(function (i, e) {
+            $(e).children('p').addClass('active');
+        });
+    })();
+</script>
 
 
   
@@ -450,12 +457,24 @@
 <article class=" flex flex-col items-center justify-center text-center">
   <header class="relative px-1 py-1 flex flex-col items-center mb-3">
     
+      
+      
+        
+      
+      
+        
+          
+        
+        <img class="mb-2 rounded-full h-36 w-36" width="144" height="144" alt="Ryan"
+          src="/avatar-transparent_hu_bed078afde92c474.png" />
+      
+    
     <h1 class="text-4xl font-extrabold">
       Ryan
     </h1>
     
     <h2 class="text-xl text-neutral-500 dark:text-neutral-400">
-      我只是一个人类
+      我是一个粉刷匠，粉刷本领强
     </h2>
     
     <div class="mt-1 text-2xl">
@@ -530,7 +549,7 @@
       <div class="items-center text-left text-xl font-semibold">
         
         <div class="font-bold text-xl text-neutral-800 decoration-primary-500 hover:underline hover:underline-offset-2 dark:text-neutral"
-          href="/posts/my-first-post/">My First Post</div>
+          href="/posts/my-first-post/">OUC-AutoLogin</div>
         
         
         
@@ -575,7 +594,7 @@
 <div class="flex flex-row flex-wrap items-center">
   
   
-  <time datetime="2025-03-09T17:54:58&#43;08:00">9 March 2025</time><span class="px-2 text-primary-500">&middot;</span><span>930 字</span><span class="px-2 text-primary-500">&middot;</span><span title="预计阅读">2 分钟</span>
+  <time datetime="2025-03-09T17:54:58&#43;08:00">9 March 2025</time><span class="px-2 text-primary-500">&middot;</span><span>928 字</span><span class="px-2 text-primary-500">&middot;</span><span title="预计阅读">2 分钟</span>
   
 
   
@@ -616,19 +635,11 @@
     
     
     <p class="text-sm text-neutral-500 dark:text-neutral-400">
-      Copy, <em>right?</em> :thinking_face:
+      Copy, <em>right?</em> &#x1f914;
     </p>
     
 
     
-    
-    <p class="text-xs text-neutral-500 dark:text-neutral-400">
-      
-      
-      由 <a class="hover:underline hover:decoration-primary-400 hover:text-primary-500"
-        href="https://gohugo.io/" target="_blank" rel="noopener noreferrer">Hugo</a> &amp; <a class="hover:underline hover:decoration-primary-400 hover:text-primary-500"
-        href="https://blowfish.page/" target="_blank" rel="noopener noreferrer">Blowfish</a> 强力驱动
-    </p>
     
 
   </div>

@@ -148,10 +148,21 @@
             
             
             
-  <a href=""  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+  <a href="/en/"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
     
-    <p class="text-base font-medium" title="">
-        Blog
+    <p class="text-base font-medium" title="Monsieur Ryan&#39;s blog">
+        Home
+    </p>
+</a>
+
+
+
+            
+            
+  <a href="/en/posts/"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+    
+    <p class="text-base font-medium" title="Articles">
+        Articles
     </p>
 </a>
 
@@ -362,10 +373,10 @@
 
                     
   <li class="mt-1">
-    <a href=""  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+    <a href="/en/"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
         
-        <p class="text-bg font-bg" title="">
-            Blog
+        <p class="text-bg font-bg" title="Monsieur Ryan&#39;s blog">
+            Home
         </p>
     </a>
 </li>
@@ -375,22 +386,19 @@
 
                     
 
-                </ul>
-                
-                <hr>
-                <ul
-                    class="flex mt-4 flex-col items-end w-full px-6 py-6 mx-auto overflow-visible list-none ltr:text-right rtl:text-left max-w-7xl">
-
-
                     
-                    <li class="mb-1">
-                        <a href=""  class="flex items-center">
-                            
-                            <p class="text-sm font-sm text-gray-500 hover:text-gray-900" title="">
-                                An interesting topic
-                            </p>
-                        </a>
-                    </li>
+  <li class="mt-1">
+    <a href="/en/posts/"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+        
+        <p class="text-bg font-bg" title="Articles">
+            Articles
+        </p>
+    </a>
+</li>
+
+
+
+
                     
 
                 </ul>
@@ -403,20 +411,17 @@
 </div>
 
 
-<div class="main-menu flex pb-3 flex-col items-end justify-between md:justify-start space-x-3" >
-    <div class="hidden md:flex items-center space-x-5">
-        
-        <a href=""  class="flex items-center">
-            
-            <p class="text-xs font-light text-gray-500 hover:text-gray-900" title="">
-                An interesting topic
-            </p>
-        </a>
-        
-    </div>
-</div>
 
 
+<script>
+    (function () {
+        var $mainmenu = $('.main-menu');
+        var path = window.location.pathname;
+        $mainmenu.find('a[href="' + path + '"]').each(function (i, e) {
+            $(e).children('p').addClass('active');
+        });
+    })();
+</script>
 
 
   
@@ -442,19 +447,11 @@
     
     
     <p class="text-sm text-neutral-500 dark:text-neutral-400">
-      Copy, <em>right?</em> :thinking_face:
+      © 2025 Ryan Fletcher. All Rights Reserved.
     </p>
     
 
     
-    
-    <p class="text-xs text-neutral-500 dark:text-neutral-400">
-      
-      
-      Powered by <a class="hover:underline hover:decoration-primary-400 hover:text-primary-500"
-        href="https://gohugo.io/" target="_blank" rel="noopener noreferrer">Hugo</a> &amp; <a class="hover:underline hover:decoration-primary-400 hover:text-primary-500"
-        href="https://blowfish.page/" target="_blank" rel="noopener noreferrer">Blowfish</a>
-    </p>
     
 
   </div>

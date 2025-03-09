@@ -11,9 +11,14 @@
 # ordered by weight from lowest to highest.
 
 [[main]]
-  name = "Blog"
+  name = "Home"
+  pageRef = "/"
+  weight = 1
+
+[[main]]
+  name = "Articles"
   pageRef = "posts"
-  weight = 10
+  weight = 2
 
 #[[main]]
 #  name = "Parent"
@@ -31,10 +36,10 @@
 #  pageRef = "posts"
 #  weight = 20
 
-[[subnavigation]]
-  name = "An interesting topic"
-  pageRef = "tags/interesting-topic"
-  weight = 10
+# [[subnavigation]]
+#   name = "An interesting topic"
+#   pageRef = "tags/interesting-topic"
+#   weight = 10
 
 #[[subnavigation]]
 #  name = "My Awesome Category"

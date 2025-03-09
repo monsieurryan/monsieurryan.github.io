@@ -12,15 +12,15 @@ title = "Ryan先生的blog"
   # logo = "img/logo.png"
   # secondaryLogo = "img/secondary-logo.png"
   # description = "My awesome website"
-  copyright = "Copy, _right?_ :thinking_face:"
+  copyright = "Copy, _right?_ :thinking:"
 
 [params.author]
   name = "Ryan"
   email = "maverickfcy@foxmail.com"
-  # image = "img/blowfish_logo.png"
+  image = "avatar-transparent.png"
   # imageQuality = 96
-  headline = "我只是一个人类"
-  bio = "A little bit about you"
+  headline = "我是一个粉刷匠，粉刷本领强"
+  bio = "A 26' CS OUCer"
   links = [
 #     { email = "mailto:hello@your_domain.com" },
 #     { link = "https://link-to-some-website.com/" },
