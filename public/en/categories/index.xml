@@ -2,14 +2,14 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Categories on Monsieur Ryan&#39;s blog</title>
-    <link>http://localhost:1313/en/categories/</link>
+    <link>https://monsieurryan.github.io/en/categories/</link>
     <description>Recent content in Categories on Monsieur Ryan&#39;s blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <managingEditor>maverickfcy@foxmail.com (Ryan)</managingEditor>
     <webMaster>maverickfcy@foxmail.com (Ryan)</webMaster>
     <copyright>© 2025 Ryan</copyright>
-    <atom:link href="http://localhost:1313/en/categories/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://monsieurryan.github.io/en/categories/index.xml" rel="self" type="application/rss+xml" />
     
   </channel>
 </rss>
