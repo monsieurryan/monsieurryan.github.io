@@ -3,12 +3,14 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
 
   <url>
-    <loc>https://monsieurryan.github.io/readme/</loc>
+    <loc>https://monsieurryan.github.io/posts/</loc>
+    <lastmod>2025-03-09T17:54:58+08:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://monsieurryan.github.io/</loc>
+    <lastmod>2025-03-09T17:54:58+08:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
     <xhtml:link

@@ -1,3 +1,8 @@
++++
+date = '2025-03-09T17:54:58+08:00'
+draft = true
+title = 'My First Post'
++++
 # OUC-AutoLogin
 
 多平台 OUC 校园网自动认证指南（基于西海岸校区校园网）
