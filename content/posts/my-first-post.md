@@ -3,6 +3,8 @@ date = '2025-03-09T17:54:58+08:00'
 draft = false
 title = 'OUC-AutoLogin'
 description = 'spf13-vim是适用于Vim的跨平台vim插件和资源分发。'
+# series = ['杂七杂八']
+tags = ['杂七杂八']
 +++
 
 多平台 OUC 校园网自动认证指南（基于西海岸校区校园网）
