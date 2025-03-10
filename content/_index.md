@@ -14,8 +14,5 @@ I'm a blogger.
 {{< /typeit >}}
 </section>
 
-<section>
-  {{<amplayer>}}
-</section>
 
 
