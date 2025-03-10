@@ -1,7 +1,8 @@
 +++
 description = 'Ryan的个人博客'
 +++
-{{< typeit 
+<section>
+  {{< typeit 
   tag=h2
   speed=125
   breakLines=false
@@ -11,3 +12,10 @@ description = 'Ryan的个人博客'
 I'm a student.
 I'm a blogger.
 {{< /typeit >}}
+</section>
+
+<section>
+  {{<amplayer>}}
+</section>
+
+
