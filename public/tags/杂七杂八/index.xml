@@ -18,7 +18,7 @@
       <author>maverickfcy@foxmail.com (Ryan)</author>
       <guid>http://localhost:1313/posts/my-first-post/</guid>
       <description></description>
-      
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:1313/posts/my-first-post/featured.png" />
     </item>
     
   </channel>
