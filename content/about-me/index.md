@@ -9,7 +9,7 @@ showWordCount = false
 showDate = false
 +++
 # 关于我
-你好呀，欢迎来到我的Blog。
+你好呀，很高兴认识你！欢迎来到我的Blog。
 
 我是湖南人，在青岛上学。
 
