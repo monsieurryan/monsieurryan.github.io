@@ -11,6 +11,7 @@ description = 'Ryan的个人博客'
 >}}
 I'm a student.
 I'm a blogger.
+I'm a developper.
 {{< /typeit >}}
 </section>
 
