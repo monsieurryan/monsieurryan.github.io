@@ -21,9 +21,19 @@
   weight = 2
 
 [[main]]
+  name = "工具箱"
+  pageRef = "toolbox"
+  weight = 3
+
+[[main]]
   name = "关于我"
   pageRef = "about-me"
-  weight = 3
+  weight = 4
+
+[[subnavigation]]
+  name = "Md二级标题排序"
+  pageRef = "toolbox/mdtool"
+  weight = 10
 
 #[[main]]
 #  name = "Parent"
