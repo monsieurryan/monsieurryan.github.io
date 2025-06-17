@@ -30,10 +30,12 @@
   pageRef = "about-me"
   weight = 4
 
-[[subnavigation]]
-  name = "Md二级标题排序"
-  pageRef = "toolbox/mdtool"
-  weight = 10
+[[main]]
+ name = "markdown标题排序"
+ parent = "工具箱"
+ pageRef = "toolbox/mdtool"
+ weight = 20
+
 
 #[[main]]
 #  name = "Parent"
