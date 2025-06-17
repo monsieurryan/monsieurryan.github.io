@@ -1,7 +1,6 @@
 +++
 date = '2025-03-10T19:16:00+08:00'
 draft = false
-layout = 'raw'
 title = 'md二级标题排序工具'
 showAuthor = false
 showTableOfContents = false
@@ -32,17 +31,19 @@ showDate = false
             font-size: 14px;
             margin: 0;
             padding: 0;
-            height: 100vh;
-            overflow: hidden;
+            /* height: 100vh; */
+            /* overflow: hidden; */
+            min-height: 100vh;
         }
 
         .app-container {
             max-width: 1200px;
             margin: 0 auto;
-            height: 100vh;
+            /* height: 100vh; */
             display: flex;
             flex-direction: column;
-            overflow: hidden;
+            /* overflow: hidden; */
+            min-height: 100vh;
         }
 
         /* Header - Notion style */
@@ -90,7 +91,8 @@ showDate = false
             flex: 1;
             padding: 16px 24px;
             min-height: 0;
-            overflow: hidden;
+            /* overflow: hidden; */
+            flex-wrap: wrap;
         }
 
         .content-section {
@@ -474,135 +476,27 @@ showDate = false
 
         /* Responsive design */
         @media (max-width: 768px) {
-            .main-content {
-                flex-direction: column;
-                padding: 12px 16px;
-            }
-
-            .header-content {
-                padding: 0 16px;
-                flex-direction: column;
-                text-align: center;
-                gap: 12px;
-            }
-
-            .header-title {
-                font-size: 24px;
-            }
-
-            .header-icon {
-                font-size: 40px;
-            }
-
-            .controls {
-                padding: 12px 16px;
-                flex-direction: column;
-                align-items: stretch;
-            }
-
-            .control-button {
-                justify-content: center;
-            }
-
-            .upload-area {
-                padding: 20px;
-            }
-
-            .section-item-content {
-                padding-left: 16px;
-            }
-
-            .section-item-content::after {
-                left: 16px;
-            }
-        }
-
-        @media (max-height: 600px) {
-            .header {
-                padding: 12px 0 8px;
-            }
-
-            .header-icon {
-                font-size: 32px;
-            }
-
-            .header-title {
-                font-size: 20px;
-            }
-
-            .header-subtitle {
-                font-size: 12px;
-            }
-
-            .upload-area {
-                padding: 16px;
-            }
-
-            .controls {
-                padding: 12px 24px;
-            }
-        }
-
-        @media (max-width: 480px) {
-            html, body {
-                font-size: 15px;
-            }
-            .app-container {
-                max-width: 100vw;
-                height: auto;
+            html, body, .app-container, .main-content {
+                height: auto !important;
                 min-height: 100vh;
-                padding: 0;
+                overflow-y: auto !important;
+            }
+            .main-content {
+                flex-direction: column;
+                gap: 12px;
+                padding: 12px 8px;
+            }
+        }
+        @media (max-width: 480px) {
+            html, body, .app-container, .main-content {
+                height: auto !important;
+                min-height: 100vh;
+                overflow-y: auto !important;
             }
             .main-content {
                 flex-direction: column;
                 gap: 8px;
                 padding: 8px 4px;
-            }
-            .content-section {
-                padding: 0;
-                min-width: 0;
-            }
-            .sortable-container {
-                min-width: 0;
-                border-radius: 0;
-                padding: 0;
-            }
-            .text-input {
-                font-size: 16px;
-                padding: 12px 8px;
-                min-height: 120px;
-            }
-            .upload-area {
-                padding: 12px 4px;
-                font-size: 15px;
-            }
-            .header-content {
-                padding: 0 4px;
-                gap: 8px;
-            }
-            .header-title {
-                font-size: 20px;
-            }
-            .header-icon {
-                font-size: 32px;
-            }
-            .controls {
-                padding: 8px 4px;
-                flex-direction: column;
-                gap: 8px;
-            }
-            .control-button, .control-button.secondary {
-                font-size: 16px;
-                padding: 10px 0;
-                width: 100%;
-                min-width: 0;
-            }
-            .section-item-header {
-                padding: 10px 8px;
-            }
-            .section-item-content {
-                padding: 10px 8px 10px 8px;
-                font-size: 13px;
             }
         }
 
