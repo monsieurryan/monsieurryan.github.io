@@ -543,6 +543,69 @@ showDate = false
             }
         }
 
+        @media (max-width: 480px) {
+            html, body {
+                font-size: 15px;
+            }
+            .app-container {
+                max-width: 100vw;
+                height: auto;
+                min-height: 100vh;
+                padding: 0;
+            }
+            .main-content {
+                flex-direction: column;
+                gap: 8px;
+                padding: 8px 4px;
+            }
+            .content-section {
+                padding: 0;
+                min-width: 0;
+            }
+            .sortable-container {
+                min-width: 0;
+                border-radius: 0;
+                padding: 0;
+            }
+            .text-input {
+                font-size: 16px;
+                padding: 12px 8px;
+                min-height: 120px;
+            }
+            .upload-area {
+                padding: 12px 4px;
+                font-size: 15px;
+            }
+            .header-content {
+                padding: 0 4px;
+                gap: 8px;
+            }
+            .header-title {
+                font-size: 20px;
+            }
+            .header-icon {
+                font-size: 32px;
+            }
+            .controls {
+                padding: 8px 4px;
+                flex-direction: column;
+                gap: 8px;
+            }
+            .control-button, .control-button.secondary {
+                font-size: 16px;
+                padding: 10px 0;
+                width: 100%;
+                min-width: 0;
+            }
+            .section-item-header {
+                padding: 10px 8px;
+            }
+            .section-item-content {
+                padding: 10px 8px 10px 8px;
+                font-size: 13px;
+            }
+        }
+
         /* Custom scrollbar styling - more subtle */
         .sortable-list::-webkit-scrollbar {
             width: 6px;
