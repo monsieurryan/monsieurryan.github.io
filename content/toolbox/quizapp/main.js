@@ -10,39 +10,24 @@ let totalCount = 0;
 let answeredCount = 0;
 let correctCount = 0;
 const WRONG_KEY = 'quiz_wrong_set';
+let suppressChapterConfirm = false; // 控制章节切换时是否弹窗
+let currentBankFile = '25春习思题库.json'; // 默认题库文件名
 
 // 初始化
+// 页面初始时不自动加载任何题库，仅显示题库管理面板
+// 其他面板初始隐藏
+
 document.addEventListener('DOMContentLoaded', function() {
     loadWrongSet();
     setupModeButtons();
-    // 自动加载同目录下的25春习思题库.json
-    fetch('./25春习思题库.json')
-        .then(response => {
-            if (!response.ok) throw new Error('题库文件不存在');
-            return response.json();
-        })
-        .then(data => {
-            quizData = data;
-            loadChapters();
-            document.getElementById('chapterSelect').style.display = 'block';
-            // 默认切换到按章节练习模式
-            const chapterTab = document.querySelector('.mode-tab[data-mode="chapter"]');
-            if (chapterTab) chapterTab.click();
-            // 自动选择第一个章节并加载题目
-            const chapterSelect = document.getElementById('chapterSelect');
-            if (chapterSelect && chapterSelect.options.length > 1) {
-                chapterSelect.selectedIndex = 1;
-                const event = new Event('change');
-                chapterSelect.dispatchEvent(event);
-            }
-            // 显示默认题库文件名（去掉.json扩展名）
-            document.getElementById('importedFileName').textContent = '当前题库：25春习思题库';
-            showToast('题库加载成功！', 'success');
-        })
-        .catch(err => {
-            showToast('未检测到题库文件或文件格式错误，请检查', 'error');
-        });
     bindClearWrongBtn();
+    // 隐藏章节选择、练习模式、统计、错题等面板
+    document.getElementById('chapterSelect').style.display = 'none';
+    document.getElementById('modeSection').style.display = 'none';
+    document.getElementById('statsSection').style.display = 'none';
+    document.getElementById('wrongQuestionsSection').style.display = 'none';
+    document.getElementById('contentHeader').style.display = 'none';
+    document.getElementById('questionsContainer').innerHTML = `<div class="empty-state"><div class="empty-icon">📁</div><div class="empty-title">请先上传或选择题库</div><div class="empty-description">支持上传JSON题库文件或选择下方预置题库</div></div>`;
 });
 
 // 设置模式按钮
@@ -79,10 +64,63 @@ function setupModeButtons() {
     document.getElementById('chapterSelect').style.display = 'block';
 }
 
+// 预置题库下拉菜单切换逻辑
+const presetBankSelect = document.getElementById('presetBankSelect');
+presetBankSelect.addEventListener('change', function() {
+    const file = this.value;
+    if (file) {
+        if (answeredCount > 0) {
+            if (!confirm('切换题库将重置当前所有答题记录，是否继续？')) {
+                // 恢复为切换前的题库选项
+                this.value = currentBankFile;
+                return;
+            }
+        }
+        fetch('./' + file)
+            .then(response => {
+                if (!response.ok) throw new Error('题库文件不存在');
+                return response.json();
+            })
+            .then(data => {
+                quizData = data;
+                loadChapters();
+                document.getElementById('chapterSelect').style.display = 'block';
+                // 默认切换到按章节练习模式
+                const chapterTab = document.querySelector('.mode-tab[data-mode="chapter"]');
+                if (chapterTab) chapterTab.click();
+                // 自动选择第一个章节并加载题目（禁用章节切换弹窗）
+                const chapterSelect = document.getElementById('chapterSelect');
+                if (chapterSelect && chapterSelect.options.length > 1) {
+                    suppressChapterConfirm = true;
+                    chapterSelect.selectedIndex = 1;
+                    const event = new Event('change');
+                    chapterSelect.dispatchEvent(event);
+                }
+                // 显示文件名（去掉.json）
+                let name = file;
+                if (name.endsWith('.json')) name = name.slice(0, -5);
+                document.getElementById('importedFileName').textContent = '当前题库：' + name;
+                currentBankFile = file; // 记录当前题库文件名
+                showSections();
+                showToast('题库加载成功！', 'success');
+            })
+            .catch(() => {
+                showToast('未检测到题库文件或文件格式错误，请检查', 'error');
+            });
+    }
+});
+
 // 文件上传处理
 document.getElementById('fileInput').addEventListener('change', function(e) {
     const file = e.target.files[0];
     if (file && file.type === 'application/json') {
+        if (answeredCount > 0) {
+            if (!confirm('切换题库将重置当前所有答题记录，是否继续？')) {
+                // 恢复为切换前的题库选项
+                presetBankSelect.value = currentBankFile;
+                return;
+            }
+        }
         const reader = new FileReader();
         reader.onload = function(e) {
             try {
@@ -93,6 +131,18 @@ document.getElementById('fileInput').addEventListener('change', function(e) {
                 let name = file.name;
                 if (name.endsWith('.json')) name = name.slice(0, -5);
                 document.getElementById('importedFileName').textContent = '当前题库：' + name;
+                // 自动切换到按章节练习并选中第一个章节（禁用章节切换弹窗）
+                const chapterTab = document.querySelector('.mode-tab[data-mode="chapter"]');
+                if (chapterTab) chapterTab.click();
+                const chapterSelect = document.getElementById('chapterSelect');
+                if (chapterSelect && chapterSelect.options.length > 1) {
+                    suppressChapterConfirm = true;
+                    chapterSelect.selectedIndex = 1;
+                    const event = new Event('change');
+                    chapterSelect.dispatchEvent(event);
+                }
+                currentBankFile = file.name; // 记录当前题库文件名
+                showSections();
                 showToast('题库加载成功！', 'success');
             } catch (error) {
                 showToast('JSON文件格式错误，请检查文件内容', 'error');
@@ -121,14 +171,15 @@ function loadChapters() {
 const chapterSelect = document.getElementById('chapterSelect');
 chapterSelect.addEventListener('change', function(e) {
     if (e.target.value) {
-        // 切换章节前确认：当前章节已作答才弹窗
-        if (answeredCount > 0) {
+        // 切换章节前确认：当前章节已作答才弹窗，且未被题库切换抑制
+        if (answeredCount > 0 && !suppressChapterConfirm) {
             if (!confirm('切换章节将重置当前答题记录，是否继续？')) {
                 // 恢复原选择
                 chapterSelect.value = currentChapter;
                 return;
             }
         }
+        suppressChapterConfirm = false; // 恢复默认
         currentChapter = e.target.value;
         answeredMap = new Map();
         // 只保留当前章节的错题
