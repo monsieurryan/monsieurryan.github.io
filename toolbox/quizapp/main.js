@@ -540,12 +540,24 @@ function clearWrongSet() {
     wrongSet.clear();
 }
 
-// 百度搜索功能
+// 搜索引擎选择
+function getSearchEngineUrl(query) {
+    const engine = document.getElementById('searchEngineSelect')?.value || 'baidu';
+    if (engine === 'bing') {
+        return 'https://cn.bing.com/search?q=' + encodeURIComponent(query);
+    } else if (engine === 'quark') {
+        return 'https://ai.quark.cn/s/?q=' + encodeURIComponent(query);
+    } else {
+        return 'https://www.baidu.com/s?wd=' + encodeURIComponent(query);
+    }
+}
+
+// 百度搜索功能（改为多引擎）
 function searchQuestion(question) {
     const decodedQuestion = decodeURIComponent(question);
     const searchQuery = decodedQuestion.replace(/【.*?】/g, '').trim();
-    const baiduUrl = `https://www.baidu.com/s?wd=${encodeURIComponent(searchQuery)}`;
-    window.open(baiduUrl, '_blank');
+    const url = getSearchEngineUrl(searchQuery);
+    window.open(url, '_blank');
 }
 
 // 显示提示消息
@@ -630,18 +642,6 @@ document.addEventListener('keydown', function(e) {
     }
 });
 
-// 添加导出按钮到侧边栏
-document.addEventListener('DOMContentLoaded', function() {
-    const wrongQuestionsSection = document.getElementById('wrongQuestionsSection');
-    const exportBtn = document.createElement('button');
-    exportBtn.className = 'clear-wrong-btn';
-    exportBtn.style.background = '#2383e2';
-    exportBtn.style.marginBottom = '8px';
-    exportBtn.textContent = '导出错题';
-    exportBtn.onclick = exportWrongQuestions;
-    wrongQuestionsSection.insertBefore(exportBtn, wrongQuestionsSection.lastElementChild);
-});
-
 // ========== 辅助函数 ==========
 function isCorrectAnswer(q, selected) {
     if (q.type === 'single') {
@@ -681,4 +681,10 @@ function bindClearWrongBtn() {
         btn.addEventListener('click', clearWrongQuestions);
         btn._binded = true;
     }
+}
+
+// 绑定导出错题按钮事件
+const exportBtn = document.getElementById('exportWrongBtn');
+if (exportBtn) {
+    exportBtn.onclick = exportWrongQuestions;
 } 
